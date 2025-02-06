@@ -1,0 +1,127 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('employment_history', function (Blueprint $table) {
+            $table->id();
+            $table->text('contract_id')->nullable();
+            $table->text('order_id')->nullable();
+            $table->text('vessel_id')->nullable();
+            $table->foreignId('seaman_id')->constrained('seafarers')->onDelete('cascade')->references('id');
+            $table->text('rank_id')->nullable();
+            $table->text('template_id')->nullable();
+            $table->text('relief_id')->nullable();
+            $table->text('state')->nullable();
+            $table->text('invoice_office_id')->nullable();
+            $table->text('payroll_office_id')->nullable();
+            $table->text('contract_type')->nullable();
+            $table->date('eoc_date_ordered')->nullable();
+            $table->date('est_on_date')->nullable();
+            $table->date('boc_date')->nullable();
+            $table->date('on_date')->nullable();
+            $table->boolean('est_off_auto')->nullable();
+            $table->date('est_off_date')->nullable();
+            $table->date('off_date')->nullable();
+            $table->date('eoc_date')->nullable();
+            $table->integer('on_days')->nullable();
+            $table->integer('on_months')->nullable();
+            $table->integer('service_days')->nullable();
+            $table->integer('contract_days')->nullable();
+            $table->boolean('is_incomplete')->nullable();
+            $table->text('on_port')->nullable();
+            $table->text('on_country')->nullable();
+            $table->text('on_country_name')->nullable();
+            $table->text('off_country_name')->nullable();
+            $table->text('location_country_name')->nullable();
+            $table->text('on_route')->nullable();
+            $table->text('off_port')->nullable();
+            $table->text('off_country')->nullable();
+            $table->text('off_route')->nullable();
+            $table->text('off_reason_id')->nullable();
+            $table->boolean('off_request')->nullable();
+            $table->text('cpr_status')->nullable();
+            $table->text('cpr_signers')->nullable();
+            $table->boolean('tax_facility')->nullable();
+            $table->text('_check_sum')->nullable();
+            $table->decimal('_total', 10, 2)->nullable();
+            $table->text('_total_formated')->nullable();
+            $table->date('cert_check_date')->nullable();
+            $table->integer('cert_ok')->nullable();
+            $table->integer('cert_expired')->nullable();
+            $table->integer('cert_expiring')->nullable();
+            $table->integer('cert_missing')->nullable();
+            $table->text('payroll_office_name')->nullable();
+            $table->text('invoice_office_name')->nullable();
+            $table->text('relief_name')->nullable();
+            $table->text('seaman_full_name')->nullable();
+            $table->text('seaman_name')->nullable();
+            $table->text('seaman_surname')->nullable();
+            $table->text('seaman_country')->nullable();
+            $table->text('seaman_country_name')->nullable();
+            $table->text('pp_dob')->nullable();
+            $table->text('rank_name')->nullable();
+            $table->text('rank_long_name')->nullable();
+            $table->text('rank_export_id')->nullable();
+            $table->text('vessel_name')->nullable();
+            $table->text('vessel_country_code')->nullable();
+            $table->text('vessel_type_id')->nullable();
+            $table->text('vessel_dwt')->nullable();
+            $table->text('vessel_gt')->nullable();
+            $table->text('vessel_engine_id')->nullable();
+            $table->text('vessel_dp_type_id')->nullable();
+            $table->text('vessel_dp_manufacturer_id')->nullable();
+            $table->text('vessel_engine_model')->nullable();
+            $table->text('vessel_imo_no')->nullable();
+            $table->text('vessel_builder_id')->nullable();
+            $table->text('vessel_length')->nullable();
+            $table->text('vessel_engine_power')->nullable();
+            $table->text('vessel_year')->nullable();
+            $table->text('agent_name')->nullable();
+            $table->text('owner_name')->nullable();
+            $table->text('project_id')->nullable();
+            $table->text('project_name')->nullable();
+            $table->text('vessel_operation_id')->nullable();
+            $table->text('location_port')->nullable();
+            $table->text('location_country')->nullable();
+            $table->text('vessel_pump')->nullable();
+            $table->text('vessel_gear')->nullable();
+            $table->text('vessel_pump_name')->nullable();
+            $table->text('vessel_gear_name')->nullable();
+            $table->text('template_name')->nullable();
+            $table->text('template_include_file')->nullable();
+            $table->text('dp_type_name')->nullable();
+            $table->text('dp_manufacturer_name')->nullable();
+            $table->text('off_reason_name')->nullable();
+            $table->text('off_reason_color')->nullable();
+            $table->text('builder_name')->nullable();
+            $table->text('client_name')->nullable();
+            $table->text('contract_employer')->nullable();
+            $table->text('vessel_employer')->nullable();
+            $table->text('vessel_manager')->nullable();
+            $table->text('currency_code')->nullable();
+            $table->text('vessel_type_name')->nullable();
+            $table->text('vessel_type_export_id')->nullable();
+            $table->text('vessel_engine_name')->nullable();
+            $table->text('vessel_engine_export_id')->nullable();
+            $table->text('employment_vessel_name')->nullable();
+            $table->text('client_id')->nullable();
+            $table->text('vessel_client_id')->nullable();
+            $table->text('contract_template_id')->nullable();
+            $table->text('vessel_year_built')->nullable();
+            $table->text('vessel_grt')->nullable();
+            $table->text('cpr_template_id')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('employment_history');
+    }
+};
